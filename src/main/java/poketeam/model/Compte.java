@@ -1,43 +1,71 @@
 package poketeam.model;
 
+
 public class Compte {
 
+    private int id;
+
     private String login;
+
     private String password;
-    private boolean connecte;
-    private String role; 
 
+    private transient boolean connecte;
 
-    public Compte(String login, String password, String role) {
+    public Compte() {}
+
+    public Compte(String login, String password) {
         this.login = login;
         this.password = password;
-        this.role = role;
         this.connecte = false;
     }
-
 
     public boolean seConnecter(String login, String password) {
         if (this.login.equals(login) && this.password.equals(password)) {
             this.connecte = true;
-            System.out.println("Connexion réussie !");
             return true;
-        } else {
-            System.out.println("Identifiants incorrects.");
-            return false;
         }
+        return false;
     }
 
     public void seDeconnecter() {
         this.connecte = false;
-        System.out.println("Déconnexion effectuée.");
     }
 
-   
-    public String getLogin() { return login; }
-    public void setLogin(String login) { this.login = login; }
+    public int getId() {
+        return id;
+    }
 
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public boolean isConnecte() { return connecte; }
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+ 
+    public boolean isConnecte() {
+        return connecte;
+    }
+
+    public void setConnecte(boolean connecte) {
+        this.connecte = connecte;
+    }
+
+    @Override
+    public String toString() {
+        return "Compte [id=" + id + ", login=" + login + ", connecte=" + connecte + "]";
+    }
 }
