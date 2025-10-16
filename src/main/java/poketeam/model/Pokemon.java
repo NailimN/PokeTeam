@@ -1,16 +1,44 @@
 package poketeam.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="pokedex")
 public class Pokemon {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
 	Integer id;
+	
+	@Column(name="nom")
 	String nom;
-	Integer tauxCapture;
-	Double facteurApparition;
+	
+	@Column(name="taux_capture")
+	int tauxCapture;
+	
+	@Column(name="facteur_apparition")
+	int facteurApparition;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="type")
 	TypeElement firstType;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="type2")
 	TypeElement secondType;
 
 
-	public Pokemon(Integer id, String nom, Integer tauxCapture, Double facteurApparition, String firstType) {
+	public Pokemon() {}
+	
+	public Pokemon(Integer id, String nom, int tauxCapture, int facteurApparition, String firstType) {
 		this.id = id;
 		this.nom = nom;
 		this.tauxCapture = tauxCapture;
@@ -20,7 +48,8 @@ public class Pokemon {
 	}
 	
 	
-	public Pokemon(Integer id, String nom, Integer tauxCapture, Double facteurApparition, String firstType, String secondType) {
+	
+	public Pokemon(Integer id, String nom, int tauxCapture, int facteurApparition, String firstType, String secondType) {
 		this.id = id;
 		this.nom = nom;
 		this.tauxCapture = tauxCapture;
@@ -50,22 +79,22 @@ public class Pokemon {
 	}
 
 
-	public Integer getTauxCapture() {
+	public int getTauxCapture() {
 		return tauxCapture;
 	}
 
 
-	public void setTauxCapture(Integer tauxCapture) {
+	public void setTauxCapture(int tauxCapture) {
 		this.tauxCapture = tauxCapture;
 	}
 
 
-	public Double getFacteurApparition() {
+	public int getFacteurApparition() {
 		return facteurApparition;
 	}
 
 
-	public void setFacteurApparition(Double facteurApparition) {
+	public void setFacteurApparition(int facteurApparition) {
 		this.facteurApparition = facteurApparition;
 	}
 

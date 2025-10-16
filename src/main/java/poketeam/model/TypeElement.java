@@ -32,4 +32,6 @@ public enum TypeElement {
 	public String getNom() {
         return nom;
     }
+	
+	
 }
