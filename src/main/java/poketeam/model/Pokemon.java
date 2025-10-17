@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="pokedex")
+@Table(name="pokemon")
 public class Pokemon {
 	
 	@Id
