@@ -16,9 +16,8 @@ public class Joueur {
 	@Column(name="surname",nullable = false,length = 15)
 	private String surnom;
 
-	public Joueur(Integer id, String surnom) {
-		super();
-		this.id = id;
+	public Joueur( String surnom) {
+		
 		this.surnom = surnom;
 	}
 
