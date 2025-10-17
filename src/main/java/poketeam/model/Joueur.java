@@ -1,21 +1,19 @@
 package poketeam.model;
 
-/* import javax.persistence.Column;
+ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;*/
+import javax.persistence.Id;
 
-//@Entity
-//@Table(name="Joueur")
+@Entity
 public class Joueur {
 	
-	//@Id //OBLIGATOIRE pour preciser quelle colonne sert d'id coté bdd
-	//@GeneratedValue(strategy = GenerationType.IDENTITY) //OBLIGATOIRE* 
-	//@Column(name="identifiant")
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer id;
 	
-	//@Column(name="firstname",nullable = false,length = 15)
+	@Column(name="surname",nullable = false,length = 15)
 	private String surnom;
 
 	public Joueur(Integer id, String surnom) {
