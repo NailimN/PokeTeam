@@ -1,15 +1,30 @@
 package poketeam.model;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
-public class Compte {
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="type_compte",columnDefinition = "enum('admin', 'joueur')")
+public abstract class Compte {
 
-    private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+    protected int id;
 
-    private String login;
+	@Column(name="login", nullable = false, length = 20)
+    protected String login;
 
-    private String password;
+	@Column(name="password", nullable = false, length = 30)
+    protected String password;
 
-    private transient boolean connecte;
+    protected transient boolean connecte;
 
     public Compte() {}
 
