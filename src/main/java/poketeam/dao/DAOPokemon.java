@@ -12,7 +12,7 @@ public class DAOPokemon implements IDAOPokemon{
 	@Override
     public List<Pokemon> findAll() {
         EntityManager em = Singleton.getInstance().getEmf().createEntityManager();
-        List<Pokemon> pokemons = em.createQuery("from Pomemon", Pokemon.class).getResultList();
+        List<Pokemon> pokemons = em.createQuery("from Pokemon", Pokemon.class).getResultList();
         em.close();
         return pokemons;
     }
