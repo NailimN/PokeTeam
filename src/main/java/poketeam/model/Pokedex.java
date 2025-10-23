@@ -1,5 +1,6 @@
 package poketeam.model;
 
+
 public class Pokedex {
 	private Joueur joueur;
 	private Pokemon pokemon;

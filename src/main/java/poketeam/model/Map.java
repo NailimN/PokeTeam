@@ -1,8 +1,14 @@
 package poketeam.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
 public class Map {
 
+	@Column(name="nom_maps",nullable = false,length = 50)	
 	private String nom;
+	@Column(name="lien_maps",nullable = false,length = 50)	
 	private String lien_img;
 	
 	
