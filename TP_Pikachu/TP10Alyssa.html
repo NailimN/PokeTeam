@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pikachu vs Pegasus</title>
+  <style>
+    body {
+      margin: 0;
+      background-image: url("assets/img/water.png");
+      background-size: 100% 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      user-select: none;
+    }
+
+    #formStart {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    }
+
+    #inputName {
+      padding: 5px 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #aaa;
+    }
+
+    #btnStart {
+      margin-left: 10px;
+      padding: 6px 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #f7d64c;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    #btnStart:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    #btnStart:hover:enabled {
+      background-color: #ffcc00;
+    }
+
+    #gameContainer {
+      position: relative;
+      width: 800px;
+      height: 600px;
+      background-image: url("assets/img/grass.png");
+      background-size: cover;
+      border: 3px solid #555;
+      overflow: hidden;
+      display: none;
+    }
+
+    #pikachu, #toupis {
+      position: absolute;
+      width: 64px;
+      height: 64px;
+    }
+
+    #toupis {
+      transition: transform 0.1s linear;
+    }
+
+    #pokemonName {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      text-shadow: 1px 1px 2px black;
+      font-weight: bold;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="formStart">
+    <h2>Entre le nom de ton Pokémon</h2>
+    <input id="inputName" type="text" placeholder="pikachu">
+    <input id="btnStart" type="button" value="Start !" disabled>
+  </div>
+
+  <div id="gameContainer">
+    <div id="pikachu">
+      <span id="pokemonName"></span>
+      <img id="imgPikachu" src="assets/img/pikachuDown.png" alt="Pikachu">
+    </div>
+    <img id="toupis" src="assets/img/toupis.png" alt="Pegasus">
+  </div>
+
+  <audio id="bgm" src="assets/audio/theme.mp3" loop></audio>
+
+  <script src="pikachu.js"></script>
+  <button id="toupie" disabled>Lance la toupie de la terreur</button>
+<script src="pikachu.js"></script>
+
+</body>
+</html>
