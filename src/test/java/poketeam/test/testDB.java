@@ -30,6 +30,8 @@ public class testDB {
 		em.persist(joueur3);
 		em.persist(joueur4);
 		em.persist(joueur5);
+		System.out.println(Singleton.getInstance().getDaoPokemon().findById(150));
+
 
 	}
 }

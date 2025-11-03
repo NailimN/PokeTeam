@@ -24,26 +24,24 @@ public abstract class Compte {
 	@Column(name="password", nullable = false, length = 30)
     protected String password;
 
-    protected transient boolean connecte;
-
     public Compte() {}
 
     public Compte(String login, String password) {
         this.login = login;
         this.password = password;
-        this.connecte = false;
     }
 
+    public Compte(Integer id, String login, String password) {
+    	this.id = id;
+        this.login = login;
+        this.password = password;
+    }
+    
     public boolean seConnecter(String login, String password) {
         if (this.login.equals(login) && this.password.equals(password)) {
-            this.connecte = true;
             return true;
         }
         return false;
-    }
-
-    public void seDeconnecter() {
-        this.connecte = false;
     }
 
     public int getId() {
@@ -70,14 +68,6 @@ public abstract class Compte {
         this.password = password;
     }
 
- 
-    public boolean isConnecte() {
-        return connecte;
-    }
-
-    public void setConnecte(boolean connecte) {
-        this.connecte = connecte;
-    }
 
     @Override
     public String toString() {

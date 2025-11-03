@@ -1,33 +1,36 @@
 package poketeam.model;
 
- import javax.persistence.Column;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
-public class Joueur {
+@DiscriminatorValue("joueur")
+public class Joueur extends Compte {
 	
-	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	private Integer id;
 	
 	@Column(name="nickname",nullable = false,length = 15)
 	private String surnom;
 
-	public Joueur( String surnom) {
-		
+	//a preciser
+	private transient List<Pokemon> pokedex = new ArrayList();
+	
+	
+	public Joueur(String login, String password, String surnom) {
+		super(login, password);
+		this.surnom = surnom;
+	}
+	
+	public Joueur(Integer id, String login, String password, String surnom) {
+		super(id, login, password);
 		this.surnom = surnom;
 	}
 
-	public Integer getId() {
-		return id;
-	}
+	public Joueur() {}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public String getSurnom() {
 		return surnom;
@@ -41,9 +44,5 @@ public class Joueur {
 	public String toString() {
 		return "Joueur [id=" + id + ", surnom=" + surnom + "]";
 	}
-	
-	
-	
-	
 
 }

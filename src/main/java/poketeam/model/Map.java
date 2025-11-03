@@ -2,10 +2,16 @@ package poketeam.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Map {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	@Column(name="nom_maps",nullable = false,length = 50)	
 	private String nom;
 	@Column(name="lien_maps",nullable = false,length = 50)	
@@ -13,11 +19,17 @@ public class Map {
 	
 	
 	public Map(String nom, String lien_img) {
-		super();
 		this.nom = nom;
 		this.lien_img = lien_img;
 	}
 
+	public Map(Integer id, String nom, String lien_img) {
+		this.id = id;
+		this.nom = nom;
+		this.lien_img = lien_img;
+	}
+	
+	public Map() {}
 
 	public String getNom() {
 		return nom;

@@ -7,7 +7,6 @@ public class Pokedex {
 	
 	
 	// Constructeurs
-	
 	public Pokedex(Joueur joueur, Pokemon pokemon) {
 		this.joueur = joueur;
 		this.pokemon = pokemon;
@@ -15,7 +14,6 @@ public class Pokedex {
 
 	
 	// Getters et setters
-	
 	public Joueur getJoueur() {
 		return joueur;
 	}
