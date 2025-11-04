@@ -71,6 +71,6 @@ public abstract class Compte {
 
     @Override
     public String toString() {
-        return "Compte [id=" + id + ", login=" + login + ", connecte=" + connecte + "]";
+        return "Compte [id=" + id + ", login=" + login + "]";
     }
 }
