@@ -6,6 +6,9 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 @DiscriminatorValue("joueur")
@@ -14,6 +17,10 @@ public class Joueur extends Compte {
 	
 	@Column(name="nickname",nullable = false,length = 15)
 	private String surnom;
+	
+	@ManyToOne
+	@JoinColumn(name = "map_id")
+	private Map positionActuelle;
 
 	//a preciser
 	private transient List<Pokemon> pokedex = new ArrayList();
@@ -38,6 +45,14 @@ public class Joueur extends Compte {
 
 	public void setSurnom(String surnom) {
 		this.surnom = surnom;
+	}
+
+	public Map getPositionActuelle() {
+		return positionActuelle;
+	}
+
+	public void setPositionActuelle(Map positionActuelle) {
+		this.positionActuelle = positionActuelle;
 	}
 
 	@Override
